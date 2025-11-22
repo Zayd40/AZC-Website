@@ -1,48 +1,105 @@
 // Mobile menu toggle & simple UI enhancements
+(function () {
+  function initSite() {
+    // --- MOBILE NAV ---
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
 
-// Wrap in an IIFE so we don't leak variables into the global scope
-(() => {
-  const hamburger = document.getElementById('hamburger');
-  const navMenu = document.getElementById('nav-menu');
-
-  // Mobile nav toggle
-  if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-      hamburger.setAttribute('aria-expanded', String(!expanded));
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
-
-    // Close menu when clicking a link (on mobile)
-    navMenu.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.setAttribute('aria-expanded', 'false');
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+    if (hamburger && navMenu) {
+      // Toggle menu open/closed
+      hamburger.addEventListener('click', () => {
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', String(!expanded));
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
       });
-    });
-  }
 
-  // Simple contact form validation (only if the form exists)
-  const contactForm = document.querySelector('form[data-validate="basic"]');
-  if (contactForm) {
-    contactForm.addEventListener('submit', event => {
-      const inputs = contactForm.querySelectorAll('input[required], textarea[required]');
-      let hasError = false;
+      // Close menu when a nav link is tapped (on mobile)
+      navMenu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
 
-      inputs.forEach(input => {
-        if (!input.value.trim()) {
-          input.classList.add('error');
-          hasError = true;
-        } else {
-          input.classList.remove('error');
+      // If you resize back to desktop, make sure menu is reset
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
         }
       });
+    }
 
-      if (hasError) {
+    // --- SMOOTH SCROLL FOR #ANCHORS ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', event => {
+        const href = anchor.getAttribute('href');
+        if (!href || href === '#') return;
+        const target = document.querySelector(href);
+        if (!target) return;
         event.preventDefault();
-      }
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     });
+
+    // --- FADE-IN ON SCROLL ---
+    const observerOptions = {
+      threshold: 0.12,
+      rootMargin: '0px 0px -60px 0px'
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document
+      .querySelectorAll(
+        '.card, .info-card, .hero-content, .hero-image, .facility-card, .committee-member, .contact-form'
+      )
+      .forEach(el => {
+        el.setAttribute('data-animate', '');
+        observer.observe(el);
+      });
+
+    // --- CONTACT FORM SIMPLE VALIDATION ---
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', event => {
+        const inputs = contactForm.querySelectorAll(
+          'input[required], textarea[required], select[required]'
+        );
+        let hasError = false;
+
+        inputs.forEach(input => {
+          if (!input.value.trim()) {
+            input.classList.add('error');
+            hasError = true;
+          } else {
+            input.classList.remove('error');
+          }
+        });
+
+        if (hasError) {
+          event.preventDefault();
+        }
+      });
+    }
+  }
+
+  // Run whether DOMContentLoaded has already fired or not
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSite);
+  } else {
+    initSite();
   }
 })();
