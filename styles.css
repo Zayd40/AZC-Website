@@ -180,20 +180,6 @@ a {
   transition: 0.3s;
 }
 
-
-/* Hamburger active state (animate into an "X") */
-.hamburger.active .bar:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.hamburger.active .bar:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active .bar:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
 /* Hero */
 
 .hero {
@@ -934,9 +920,13 @@ footer {
   }
 }
 
-/* Ensure logo text styling matches design */
-.nav-logo-text {
-  font-weight: 700;
-  font-size: 1.4rem;
-  color: #2c5530;
+/* Desktop nav safety override: ensure menu is inline and not stuck overlay */
+@media screen and (min-width: 769px) {
+  .nav-menu {
+    position: static;
+    transform: none !important;
+    box-shadow: none;
+    padding: 0;
+  }
 }
+

@@ -3,243 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Al-Zahraa Centre | Shia Islamic Centre in Brighton &amp; Hove</title>
-  <meta name="description" content="Al-Zahraa Centre is Sussex’s only dedicated Shia Islamic community centre in Brighton &amp; Hove, offering English-speaking programmes, prayers and events rooted in the teachings of Ahlul Bayt (AS).">
-  <meta name="keywords" content="Al-Zahraa Centre, Shia Islamic centre Brighton, Shia mosque Sussex, Brighton Islamic centre, Ahlul Bayt, English Islamic programmes, Muslim community Brighton">
+
+  <!-- SEO Meta Tags -->
+  <title>Al-Zahraa Centre | Shia Islamic Centre in Brighton & Hove</title>
+  <meta name="description" content="Al-Zahraa Centre is Sussex’s only Shia Islamic community centre. Join our inclusive English-speaking community in Brighton & Hove for prayers, events, and spiritual growth.">
+  <meta name="keywords" content="Al-Zahraa Centre, Shia Islamic Centre, Brighton mosque, Hove Islamic centre, Muslim community Sussex, Ahlul Bayt, English Islamic programs, Shia mosque Brighton, Islamic events Sussex">
   <meta name="author" content="Al-Zahraa Centre">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <!-- Canonical URL -->
   <link rel="canonical" href="https://www.alzahraacentre.org/">
+
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.alzahraacentre.org/">
-  <meta property="og:title" content="Al-Zahraa Centre | Shia Islamic Centre in Brighton &amp; Hove">
-  <meta property="og:description" content="Sussex’s only dedicated Shia Islamic community centre providing English-speaking programmes, prayers and events rooted in the teachings of Ahlul Bayt (AS).">
+  <meta property="og:title" content="Al-Zahraa Centre - Shia Islamic Centre in Brighton">
+  <meta property="og:description" content="Sussex's only Shia Islamic community centre offering inclusive, English-speaking programmes. Join our vibrant community in Brighton & Hove.">
   <meta property="og:image" content="https://www.alzahraacentre.org/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Al-Zahraa Centre">
   <meta property="og:locale" content="en_GB">
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Al-Zahraa Centre | Shia Islamic Centre in Brighton &amp; Hove">
-  <meta name="twitter:description" content="Sussex’s only dedicated Shia Islamic community centre providing English-speaking programmes, prayers and events rooted in the teachings of Ahlul Bayt (AS).">
+  <meta name="twitter:url" content="https://www.alzahraacentre.org/">
+  <meta name="twitter:title" content="Al-Zahraa Centre - Shia Islamic Centre in Brighton">
+  <meta name="twitter:description" content="Sussex's only Shia Islamic community centre offering inclusive, English-speaking programmes.">
   <meta name="twitter:image" content="https://www.alzahraacentre.org/images/og-image.jpg">
+
+  <!-- Theme & App Meta -->
   <meta name="theme-color" content="#2c3e50">
+  <meta name="msapplication-TileColor" content="#2c3e50">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Al-Zahraa Centre">
+
+  <!-- Icons -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Cabinet Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #fefefe;
-    }
-    img { max-width: 100%; height: auto; display: block; }
-    a { color: inherit; text-decoration: none; }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .navbar {
-      background-color: #fff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 70px;
-    }
-    .nav-logo-text {
-      font-weight: 700;
-      font-size: 1.4rem;
-      color: #2c5530;
-    }
-    .nav-menu {
-      display: flex;
-      gap: 1.5rem;
-    }
-    .nav-link {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      font-size: 0.95rem;
-      position: relative;
-    }
-    .nav-link[aria-current="page"] {
-      color: #2c5530;
-    }
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 2px;
-      background: #2c5530;
-      transition: width 0.2s ease;
-    }
-    .nav-link:hover::after { width: 100%; }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      gap: 4px;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-    .bar {
-      width: 24px;
-      height: 3px;
-      background-color: #333;
-      transition: 0.3s;
-    }
-    .hero {
-      margin-top: 70px;
-      padding: 80px 0;
-      background: linear-gradient(135deg, #f8f9f7 0%, #ede8e0 100%);
-    }
-    .hero-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      align-items: center;
-      gap: 3rem;
-      min-height: 520px;
-    }
-    .hero-content { flex: 1; }
-    .eyebrow {
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #777;
-      margin-bottom: 0.75rem;
-    }
-    .hero-content h2 {
-      font-size: 3.2rem;
-      font-weight: 700;
-      color: #2c5530;
-      margin-bottom: 1rem;
-    }
-    .hero-subtitle {
-      font-size: 1.1rem;
-      color: #666;
-      margin-bottom: 2rem;
-    }
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-size: 0.95rem;
-      color: #555;
-    }
-    .hero-meta i { margin-right: 0.35rem; }
-    .hero-image {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-    .image-placeholder {
-      width: 380px;
-      height: 260px;
-      background-color: #e8e4df;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #8a8682;
-      font-size: 3rem;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 12px 24px;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.25s ease, color 0.25s ease,
-                  transform 0.15s ease, box-shadow 0.2s ease;
-    }
-    .btn.primary {
-      background-color: #2c5530;
-      color: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
-    .btn.secondary {
-      background: transparent;
-      border: 2px solid #2c5530;
-      color: #2c5530;
-    }
-    .btn.primary:hover {
-      background-color: #1f3d23;
-      transform: translateY(-1px);
-    }
-    .btn.secondary:hover {
-      background-color: #2c5530;
-      color: #fff;
-    }
-    @media screen and (max-width: 900px) {
-      .hero-container {
-        flex-direction: column;
-        text-align: center;
-      }
-      .hero-image { order: -1; }
-      .hero-content h2 { font-size: 2.5rem; }
-      .image-placeholder {
-        width: 320px;
-        height: 220px;
-      }
-    }
-    @media screen and (max-width: 768px) {
-      .nav-menu {
-        position: fixed;
-        inset-inline: 0;
-        top: 70px;
-        background: #fff;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.2rem;
-        padding: 1.5rem 0 2rem;
-        transform: translateY(-100%);
-        transition: transform 0.25s ease;
-        box-shadow: 0 10px 27px rgba(0,0,0,0.06);
-      }
-      .nav-menu.active { transform: translateY(0); }
-      .hamburger { display: flex; }
-      .hero { padding: 60px 0; }
-    }
-  </style>
-  <link rel="stylesheet" href="styles.min.css">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        as="style" onload="this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  </noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Structured Data: Organisation & Place -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -300,7 +114,9 @@
       </div>
     </nav>
   </header>
+
   <main>
+    <!-- Hero -->
     <section class="hero">
       <div class="hero-container">
         <div class="hero-content">
@@ -323,11 +139,14 @@
         </div>
         <div class="hero-image">
           <div class="image-placeholder">
+            <!-- Replace this with a real photo of the centre when available -->
             <i class="fas fa-mosque" aria-hidden="true"></i>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Intro / Who we serve -->
     <section class="section">
       <div class="container intro-grid">
         <div>
@@ -361,6 +180,8 @@
         </div>
       </div>
     </section>
+
+    <!-- Quick Info -->
     <section class="section section-alt">
       <div class="container info-grid">
         <div class="info-card">
@@ -377,6 +198,7 @@
             Get Directions
           </a>
         </div>
+
         <div class="info-card">
           <i class="fas fa-calendar" aria-hidden="true"></i>
           <h3>Regular Programmes</h3>
@@ -388,6 +210,7 @@
             View Events &amp; Activities
           </a>
         </div>
+
         <div class="info-card">
           <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
           <h3>Get Involved</h3>
@@ -403,6 +226,8 @@
         </div>
       </div>
     </section>
+
+    <!-- Events -->
     <section class="section" id="events">
       <div class="container">
         <div class="section-header">
@@ -412,6 +237,7 @@
             family-friendly activities.
           </p>
         </div>
+
         <div class="luma-embed">
           <iframe
             src="https://lu.ma/embed/calendar/cal-s7jtkdJGqCF61ac/events?lt=light"
@@ -427,6 +253,8 @@
         </div>
       </div>
     </section>
+
+    <!-- Get Involved CTA -->
     <section class="section section-alt">
       <div class="container cta-grid">
         <div>
@@ -454,6 +282,7 @@
       </div>
     </section>
   </main>
+
   <footer>
     <div class="container footer-content">
       <div class="footer-section">
@@ -490,6 +319,7 @@
       <p>&copy; 2024 Al-Zahraa Centre. All rights reserved.</p>
     </div>
   </footer>
-  <script src="script.min.js" defer></script>
+
+  <script src="script.js" defer></script>
 </body>
 </html>

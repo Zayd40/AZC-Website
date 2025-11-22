@@ -6,6 +6,22 @@
     const navMenu = document.getElementById('nav-menu');
 
     if (hamburger && navMenu) {
+      function resetNavState() {
+        if (window.innerWidth > 768) {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+        } else {
+          // On mobile, default to closed but allow CSS to handle visibility
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+        }
+      }
+
+      // Ensure correct initial state
+      resetNavState();
+
       // Toggle menu open/closed
       hamburger.addEventListener('click', () => {
         const expanded = hamburger.getAttribute('aria-expanded') === 'true';
@@ -25,14 +41,8 @@
         });
       });
 
-      // If you resize back to desktop, make sure menu is reset
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
-          hamburger.classList.remove('active');
-          navMenu.classList.remove('active');
-          hamburger.setAttribute('aria-expanded', 'false');
-        }
-      });
+      // On resize, always reset nav state so it never gets stuck
+      window.addEventListener('resize', resetNavState);
     }
 
     // --- SMOOTH SCROLL FOR #ANCHORS ---
