@@ -4,45 +4,42 @@
     // --- MOBILE NAV ---
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
+    const pageBody = document.body;
 
     if (hamburger && navMenu) {
-      function resetNavState() {
-        if (window.innerWidth > 768) {
-          hamburger.classList.remove('active');
-          navMenu.classList.remove('active');
-          hamburger.setAttribute('aria-expanded', 'false');
-        } else {
-          // On mobile, default to closed but allow CSS to handle visibility
-          hamburger.classList.remove('active');
-          navMenu.classList.remove('active');
-          hamburger.setAttribute('aria-expanded', 'false');
-        }
-      }
+      const closeNav = () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        pageBody.classList.remove('nav-open');
+      };
+
+      const toggleNav = () => {
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        const nextState = !expanded;
+        hamburger.setAttribute('aria-expanded', String(nextState));
+        hamburger.classList.toggle('active', nextState);
+        navMenu.classList.toggle('active', nextState);
+        pageBody.classList.toggle('nav-open', nextState);
+      };
 
       // Ensure correct initial state
-      resetNavState();
+      closeNav();
 
       // Toggle menu open/closed
-      hamburger.addEventListener('click', () => {
-        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-        hamburger.setAttribute('aria-expanded', String(!expanded));
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-      });
+      hamburger.addEventListener('click', toggleNav);
 
       // Close menu when a nav link is tapped (on mobile)
       navMenu.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
           if (window.innerWidth <= 768) {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            hamburger.setAttribute('aria-expanded', 'false');
+            closeNav();
           }
         });
       });
 
       // On resize, always reset nav state so it never gets stuck
-      window.addEventListener('resize', resetNavState);
+      window.addEventListener('resize', closeNav);
     }
 
     // --- SMOOTH SCROLL FOR #ANCHORS ---
